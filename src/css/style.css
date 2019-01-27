@@ -1,25 +1,36 @@
-html {
-  font-family: sans-serif; }
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("../../fonts/GlacialIndifference-Regular.woff");
+  font-weight: normal; }
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("../../fonts/GlacialIndifference-Bold.woff");
+  font-weight: bold; }
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("../../fonts/GlacialIndifference-Italic.woff");
+  font-style: italic; }
+* {
+  font-family: "GlacialIndifference", sans-serif; }
 
 body {
   margin: 0px; }
 
-#title {
+header #title {
   margin: 20px;
   font-size: 3.4rem;
   color: #b1b1b1; }
-
-hr {
-  margin: 0px 0px 20px 20px;
+header hr {
+  margin: -7px 0px 30px 20px;
   border: 2px solid #b1b1b1;
-  width: 100px; }
+  width: 70px; }
 
 nav {
   display: inline-block;
   float: left; }
   nav button {
     display: block;
-    margin-bottom: 30px;
+    margin: 28px 0px;
     padding-top: 40px;
     width: 115px;
     height: 75px;
@@ -29,12 +40,13 @@ nav {
     background-color: transparent;
     background-size: 40px;
     background-position: top;
-    background-repeat: no-repeat; }
-    nav button:focus {
-      outline: none; }
-    nav button:hover, nav button.current {
+    background-repeat: no-repeat;
+    cursor: pointer; }
+    nav button:first-of-type {
+      margin-top: 0px; }
+    nav button:hover, nav button:focus, nav button.current {
       color: #DA4359;
-      cursor: pointer; }
+      outline: none; }
     nav button[data-panel="AddData"] {
       background-image: url("../../images/icons/Plus.svg"); }
       nav button[data-panel="AddData"]:hover, nav button[data-panel="AddData"].current {
@@ -62,14 +74,23 @@ section {
 
 /* Mobile */
 @media screen and (max-width: 700px) {
+  header hr {
+    margin-bottom: 20px; }
+
   nav {
     float: none;
+    height: 70px;
     max-width: 100%;
     white-space: nowrap;
-    overflow-x: scroll; }
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; }
     nav button {
       display: inline;
-      height: 50px; }
+      margin: 0px;
+      padding-top: 28px;
+      height: 100%;
+      background-size: 30px; }
 
   section {
     width: 100%; } }

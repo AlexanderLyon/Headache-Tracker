@@ -1,23 +1,42 @@
 
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("../../fonts/GlacialIndifference-Regular.woff");
+  font-weight: normal;
+  }
+@font-face {
+  font-family: "GlacialIndifference";
+  src: url("../../fonts/GlacialIndifference-Bold.woff");
+  font-weight: bold;
+  }
+  @font-face {
+  font-family: "GlacialIndifference";
+  src: url("../../fonts/GlacialIndifference-Italic.woff");
+  font-style: italic;
+   }
+
+
 $red: #DA4359;
 $lightgrey: #b1b1b1;
 
-html {
-  font-family: sans-serif;
+* {
+  font-family: "GlacialIndifference", sans-serif;
 }
 
 body { margin: 0px; }
 
-#title {
-  margin: 20px;
-  font-size: 3.4rem;
-  color: $lightgrey;
-}
+header {
+  #title {
+    margin: 20px;
+    font-size: 3.4rem;
+    color: $lightgrey;
+  }
 
-hr {
-  margin: 0px 0px 20px 20px;
-  border: 2px solid $lightgrey;
-  width: 100px;
+  hr {
+    margin: -7px 0px 30px 20px;
+    border: 2px solid $lightgrey;
+    width: 70px;
+  }
 }
 
 nav {
@@ -26,7 +45,7 @@ nav {
 
   button {
     display: block;
-    margin-bottom: 30px;
+    margin: 28px 0px;
     padding-top: 40px;
     width: 115px;
     height: 75px;
@@ -37,12 +56,13 @@ nav {
     background-size: 40px;
     background-position: top;
     background-repeat: no-repeat;
+    cursor: pointer;
 
-    &:focus { outline: none; }
+    &:first-of-type { margin-top: 0px; }
 
-    &:hover, &.current {
+    &:hover, &:focus, &.current {
       color: $red;
-      cursor: pointer;
+      outline: none;
     }
 
     &[data-panel="AddData"] {
@@ -76,15 +96,25 @@ section {
 
 /* Mobile */
 @media screen and (max-width: 700px) {
+  header {
+    hr { margin-bottom: 20px; }
+  }
+
   nav {
     float: none;
+    height: 70px;
     max-width: 100%;
     white-space: nowrap;
+    overflow-y: hidden;
     overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 
     button {
       display: inline;
-      height: 50px;
+      margin: 0px;
+      padding-top: 28px;
+      height: 100%;
+      background-size: 30px;
     }
   }
 
