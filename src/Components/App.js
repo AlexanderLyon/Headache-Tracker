@@ -42,8 +42,9 @@ export class App extends React.Component {
   render() {
     return (
       <main>
-        <h1 id='title'>Headache Tracker</h1>
-        <Navigation changePanels={this.changePanels}/>
+        <h1 id='title'>Headache<br/>Tracker</h1>
+        <hr/>
+        <Navigation changePanels={this.changePanels} currentPanel={this.state.activePanel}/>
         { this.displayPanel() }
       </main>
     );

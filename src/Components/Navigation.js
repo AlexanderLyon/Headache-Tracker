@@ -9,21 +9,21 @@ export class Navigation extends React.Component {
   render() {
     return (
       <nav>
-        <button data-panel="AddData" onClick={this.props.changePanels}>
-          <img src="" alt=""/>
-          <p>Add Data</p>
+        <button data-panel="AddData" className={this.props.currentPanel === 'AddData' ? 'current' : ''} 
+          onClick={this.props.changePanels}>
+          Add Data
         </button>
-        <button data-panel="AllData" onClick={this.props.changePanels}>
-          <img src="" alt=""/>
-          <p>All Data</p>
+        <button data-panel="AllData" className={this.props.currentPanel === 'AllData' ? 'current' : ''}
+          onClick={this.props.changePanels}>
+          All Data
         </button>
-        <button data-panel="Insights" onClick={this.props.changePanels}>
-          <img src="" alt=""/>
-          <p>Insights</p>
+        <button data-panel="Insights" className={this.props.currentPanel === 'Insights' ? 'current' : ''}
+          onClick={this.props.changePanels}>
+          Insights
         </button>
-        <button data-panel="Setup" onClick={this.props.changePanels}>
-          <img src="" alt=""/>
-          <p>Setup</p>
+        <button data-panel="Setup" className={this.props.currentPanel === 'Setup' ? 'current' : ''}
+          onClick={this.props.changePanels}>
+          Setup
         </button>
       </nav>
     );

@@ -1,3 +1,7 @@
+
+$red: #DA4359;
+$lightgrey: #b1b1b1;
+
 html {
   font-family: sans-serif;
 }
@@ -6,6 +10,14 @@ body { margin: 0px; }
 
 #title {
   margin: 20px;
+  font-size: 3.4rem;
+  color: $lightgrey;
+}
+
+hr {
+  margin: 0px 0px 20px 20px;
+  border: 2px solid $lightgrey;
+  width: 100px;
 }
 
 nav {
@@ -14,13 +26,49 @@ nav {
 
   button {
     display: block;
-    width: 150px;
+    margin-bottom: 30px;
+    padding-top: 40px;
+    width: 115px;
+    height: 75px;
+    color: $lightgrey;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    background-size: 40px;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    &:focus { outline: none; }
+
+    &:hover, &.current {
+      color: $red;
+      cursor: pointer;
+    }
+
+    &[data-panel="AddData"] {
+      background-image: url("../../images/icons/Plus.svg");
+      &:hover, &.current { background-image: url("../../images/icons/Plus-red.svg"); }
+    }
+    &[data-panel="AllData"] {
+      background-image: url("../../images/icons/Graph.svg");
+      &:hover, &.current { background-image: url("../../images/icons/Graph-red.svg"); }
+    }
+    &[data-panel="Insights"] {
+      background-image: url("../../images/icons/Lightbulb.svg");
+      &:hover, &.current { background-image: url("../../images/icons/Lightbulb-red.svg"); }
+    }
+    &[data-panel="Setup"] {
+      background-image: url("../../images/icons/Cog.svg");
+      &:hover, &.current { background-image: url("../../images/icons/Cog-red.svg"); }
+    }
   }
 }
 
 section {
   display: inline-block;
+  box-sizing: border-box;
   min-height: 100vh;
+  width: calc(100% - 115px);
   padding: 7px 13px;
   background-color: #f0f1f3;
 }
@@ -30,8 +78,14 @@ section {
 @media screen and (max-width: 700px) {
   nav {
     float: none;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;
 
-    button { display: inline-block; }
+    button {
+      display: inline;
+      height: 50px;
+    }
   }
 
   section { 

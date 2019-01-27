@@ -5,27 +5,71 @@ body {
   margin: 0px; }
 
 #title {
-  margin: 20px; }
+  margin: 20px;
+  font-size: 3.4rem;
+  color: #b1b1b1; }
+
+hr {
+  margin: 0px 0px 20px 20px;
+  border: 2px solid #b1b1b1;
+  width: 100px; }
 
 nav {
   display: inline-block;
   float: left; }
   nav button {
     display: block;
-    width: 150px; }
+    margin-bottom: 30px;
+    padding-top: 40px;
+    width: 115px;
+    height: 75px;
+    color: #b1b1b1;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    background-size: 40px;
+    background-position: top;
+    background-repeat: no-repeat; }
+    nav button:focus {
+      outline: none; }
+    nav button:hover, nav button.current {
+      color: #DA4359;
+      cursor: pointer; }
+    nav button[data-panel="AddData"] {
+      background-image: url("../../images/icons/Plus.svg"); }
+      nav button[data-panel="AddData"]:hover, nav button[data-panel="AddData"].current {
+        background-image: url("../../images/icons/Plus-red.svg"); }
+    nav button[data-panel="AllData"] {
+      background-image: url("../../images/icons/Graph.svg"); }
+      nav button[data-panel="AllData"]:hover, nav button[data-panel="AllData"].current {
+        background-image: url("../../images/icons/Graph-red.svg"); }
+    nav button[data-panel="Insights"] {
+      background-image: url("../../images/icons/Lightbulb.svg"); }
+      nav button[data-panel="Insights"]:hover, nav button[data-panel="Insights"].current {
+        background-image: url("../../images/icons/Lightbulb-red.svg"); }
+    nav button[data-panel="Setup"] {
+      background-image: url("../../images/icons/Cog.svg"); }
+      nav button[data-panel="Setup"]:hover, nav button[data-panel="Setup"].current {
+        background-image: url("../../images/icons/Cog-red.svg"); }
 
 section {
   display: inline-block;
+  box-sizing: border-box;
   min-height: 100vh;
+  width: calc(100% - 115px);
   padding: 7px 13px;
   background-color: #f0f1f3; }
 
 /* Mobile */
 @media screen and (max-width: 700px) {
   nav {
-    float: none; }
+    float: none;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll; }
     nav button {
-      display: inline-block; }
+      display: inline;
+      height: 50px; }
 
   section {
     width: 100%; } }
