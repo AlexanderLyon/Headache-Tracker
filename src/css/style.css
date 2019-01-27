@@ -1,3 +1,33 @@
 html {
-  font-family: sans-serif;
-}
+  font-family: sans-serif; }
+
+body {
+  margin: 0px; }
+
+#title {
+  margin: 20px; }
+
+nav {
+  display: inline-block;
+  float: left; }
+  nav button {
+    display: block;
+    width: 150px; }
+
+section {
+  display: inline-block;
+  min-height: 100vh;
+  padding: 7px 13px;
+  background-color: #f0f1f3; }
+
+/* Mobile */
+@media screen and (max-width: 700px) {
+  nav {
+    float: none; }
+    nav button {
+      display: inline-block; }
+
+  section {
+    width: 100%; } }
+
+/*# sourceMappingURL=style.css.map */
