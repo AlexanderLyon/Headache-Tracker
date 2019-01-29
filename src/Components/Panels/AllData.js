@@ -9,7 +9,7 @@ export class AllData extends React.Component {
   render() {
     return (
       <section>
-        <p>Viewing All Data</p>
+        <h2 className="coming-soon">All data coming soon!</h2>
       </section>
     );
   }

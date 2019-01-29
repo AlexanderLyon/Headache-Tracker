@@ -18,6 +18,7 @@
 
 $red: #DA4359;
 $lightgrey: #b1b1b1;
+$darkgrey: #6f6e6e;
 
 * {
   font-family: "GlacialIndifference", sans-serif;
@@ -29,13 +30,14 @@ header {
   #title {
     margin: 20px;
     font-size: 3.4rem;
+    letter-spacing: 1px;
     color: $lightgrey;
   }
 
   hr {
     margin: -7px 0px 30px 20px;
-    border: 2px solid $lightgrey;
-    width: 70px;
+    border: 3px solid $lightgrey;
+    width: 56px;
   }
 }
 
@@ -45,15 +47,16 @@ nav {
 
   button {
     display: block;
-    margin: 28px 0px;
-    padding-top: 40px;
-    width: 115px;
-    height: 75px;
+    margin: 30px 0px;
+    padding-top: 42px;
+    width: 100px;
+    height: 65px;
     color: $lightgrey;
     font-weight: bold;
+    font-size: 12.5px;
     border: none;
     background-color: transparent;
-    background-size: 40px;
+    background-size: 34px;
     background-position: top;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -91,6 +94,25 @@ section {
   width: calc(100% - 115px);
   padding: 7px 13px;
   background-color: #f0f1f3;
+
+  p {
+    color: $darkgrey;
+    font-size: 1.1em;
+  }
+
+  h2 {
+    color: $darkgrey;
+  
+    &.coming-soon {
+      margin: 20px auto;
+      text-align:center;
+    }
+  }
+
+  .elapsed-days {
+    color: $red;
+    font-weight: bold;
+  }
 }
 
 

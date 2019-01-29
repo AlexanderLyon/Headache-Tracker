@@ -11,7 +11,7 @@ export class AddData extends React.Component {
   render() {
     return (
       <section>
-        <p>It's been {this.state.elapsedDays} days since your last headache</p>
+        <p>It's been <span className="elapsed-days">{this.state.elapsedDays}</span> days since your last headache</p>
       </section>
     );
   }

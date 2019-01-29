@@ -9,7 +9,7 @@ export class Setup extends React.Component {
   render() {
     return (
       <section>
-        <p>Viewing Setup</p>
+        <h2 className="coming-soon">Setup coming soon!</h2>
       </section>
     );
   }
