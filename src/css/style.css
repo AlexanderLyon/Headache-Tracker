@@ -13,8 +13,35 @@
 * {
   font-family: "GlacialIndifference", sans-serif; }
 
+::selection {
+  background: rgba(189, 85, 106, 0.2); }
+
 body {
   margin: 0px; }
+
+button.btn, button.btn:visited {
+  color: #FFFFFF;
+  background-color: #DA4359;
+  border: 2px solid #DA4359;
+  border-radius: 7px;
+  box-shadow: 1px 1px 14px -2px #DA4359;
+  padding: 1px 10px;
+  height: 36px;
+  min-width: 90px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 150ms;
+  cursor: pointer; }
+  button.btn:hover, button.btn:visited:hover {
+    outline: none;
+    box-shadow: none;
+    background-color: #b93144;
+    border-color: #b93144; }
+  button.btn:focus, button.btn:visited:focus {
+    outline: none;
+    box-shadow: 1px 1px 14px 1px #b93144; }
+  button.btn:active, button.btn:visited:active {
+    box-shadow: none; }
 
 header #title {
   margin: 20px;
@@ -70,8 +97,8 @@ section {
   display: inline-block;
   box-sizing: border-box;
   min-height: 100vh;
-  width: calc(100% - 115px);
-  padding: 7px 13px;
+  width: calc(100% - 100px);
+  padding: 10px 30px;
   background-color: #f0f1f3; }
   section p {
     color: #6f6e6e;
@@ -84,6 +111,35 @@ section {
   section .elapsed-days {
     color: #DA4359;
     font-weight: bold; }
+  section form#add-data {
+    padding: 20px 0px; }
+    section form#add-data .field {
+      display: inline-block;
+      width: 200px;
+      margin: 10px 55px 10px 0px; }
+      section form#add-data .field label {
+        display: block;
+        margin: 7px 0px;
+        color: #6f6e6e;
+        font-size: 1.1em; }
+      section form#add-data .field input[type="text"], section form#add-data .field input[type="date"], section form#add-data .field select {
+        color: #DA4359;
+        background-color: white;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        padding: 0px 10px;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 7px;
+        height: 36px;
+        width: 100%;
+        transition: 150ms; }
+        section form#add-data .field input[type="text"]:focus, section form#add-data .field input[type="date"]:focus, section form#add-data .field select:focus {
+          outline: none;
+          box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55); }
+    section form#add-data button[type="submit"] {
+      display: block;
+      margin-top: 20px; }
 
 /* Mobile */
 @media screen and (max-width: 700px) {
@@ -106,6 +162,7 @@ section {
       background-size: 30px; }
 
   section {
-    width: 100%; } }
+    width: 100%;
+    padding: 10px 12px; } }
 
 /*# sourceMappingURL=style.css.map */

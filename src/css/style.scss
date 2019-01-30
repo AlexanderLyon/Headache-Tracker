@@ -17,6 +17,7 @@
 
 
 $red: #DA4359;
+$darkred: #b93144;
 $lightgrey: #b1b1b1;
 $darkgrey: #6f6e6e;
 
@@ -24,7 +25,40 @@ $darkgrey: #6f6e6e;
   font-family: "GlacialIndifference", sans-serif;
 }
 
+::selection { background: rgba(189, 85, 106, 0.2); }
+
 body { margin: 0px; }
+
+button.btn, button.btn:visited {
+  color: #FFFFFF;
+  background-color: $red;
+  border: 2px solid $red;
+  border-radius: 7px;
+  box-shadow: 1px 1px 14px -2px $red;
+  padding: 1px 10px;
+  height: 36px;
+  min-width: 90px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: 150ms;
+  cursor: pointer;
+
+  &:hover {
+    outline: none;
+    box-shadow: none;
+    background-color: $darkred;
+    border-color: $darkred;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 1px 1px 14px 1px $darkred;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
 
 header {
   #title {
@@ -91,8 +125,8 @@ section {
   display: inline-block;
   box-sizing: border-box;
   min-height: 100vh;
-  width: calc(100% - 115px);
-  padding: 7px 13px;
+  width: calc(100% - 100px);
+  padding: 10px 30px;
   background-color: #f0f1f3;
 
   p {
@@ -112,6 +146,47 @@ section {
   .elapsed-days {
     color: $red;
     font-weight: bold;
+  }
+
+  form#add-data {
+    padding: 20px 0px;
+
+    .field {
+      display: inline-block;
+      width: 200px;
+      margin: 10px 55px 10px 0px;
+
+      label {
+        display: block;
+        margin: 7px 0px;
+        color: $darkgrey;
+        font-size: 1.1em;
+      }
+  
+      input[type="text"], input[type="date"], select {
+        color: $red;
+        background-color: white;
+        -moz-appearance: none; 
+        -webkit-appearance: none; 
+        padding: 0px 10px;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 7px;
+        height: 36px;
+        width: 100%;
+        transition: 150ms;
+  
+        &:focus {
+          outline: none;
+          box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55);
+        }
+      }
+    }
+
+    button[type="submit"] {
+      display: block;
+      margin-top: 20px;
+    }
   }
 }
 
@@ -142,5 +217,6 @@ section {
 
   section { 
     width: 100%;
+    padding: 10px 12px;
   }
 }

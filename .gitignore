@@ -4,4 +4,5 @@
 package-lock.json
 
 assets/
+utilities/
 node_modules/
