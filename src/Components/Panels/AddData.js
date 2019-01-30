@@ -29,6 +29,7 @@ export class AddData extends React.Component {
     const xhr = new XMLHttpRequest();
     let urlEncodedDataPairs = [];
     const data = {
+      'userID': this.props.userID,
       'todays-weather': document.getElementById('todays-weather').value,
       'pain-severity': document.getElementById('pain-severity').value,
     }

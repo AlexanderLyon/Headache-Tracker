@@ -9,7 +9,11 @@ export class Setup extends React.Component {
   render() {
     return (
       <section>
-        <h2 className="coming-soon">Setup coming soon!</h2>
+        <div id="user-info">
+          <p>Your unique user ID:</p>
+          <p><b>{this.props.userID}</b></p>
+        </div>
+        <div id="triggers"></div>
       </section>
     );
   }
