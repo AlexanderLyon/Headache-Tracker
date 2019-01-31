@@ -20,6 +20,7 @@ body {
   margin: 0px; }
 
 button.btn, button.btn:visited {
+  margin: 9px 0px;
   color: #FFFFFF;
   background-color: #DA4359;
   border: 2px solid #DA4359;
@@ -42,6 +43,16 @@ button.btn, button.btn:visited {
     box-shadow: 1px 1px 14px 1px #b93144; }
   button.btn:active, button.btn:visited:active {
     box-shadow: none; }
+  button.btn.ghost-btn, button.btn:visited.ghost-btn {
+    background-color: transparent;
+    color: #DA4359;
+    box-shadow: none; }
+    button.btn.ghost-btn:hover, button.btn:visited.ghost-btn:hover {
+      color: white;
+      background-color: #DA4359;
+      border-color: #DA4359; }
+    button.btn.ghost-btn:focus, button.btn:visited.ghost-btn:focus {
+      box-shadow: 1px 1px 14px 0px #e07686; }
 
 header #title {
   margin: 20px;
@@ -58,7 +69,7 @@ nav {
   float: left; }
   nav button {
     display: block;
-    margin: 30px 0px;
+    margin: 40px 0px;
     padding-top: 42px;
     width: 100px;
     height: 65px;
@@ -140,8 +151,31 @@ section {
     section form#add-data button[type="submit"] {
       display: block;
       margin-top: 20px; }
+  section #user-settings {
+    float: left; }
+  section #user-settings, section #triggers-setup {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 50%;
+    padding: 0px 25px; }
+    section #user-settings h2, section #triggers-setup h2 {
+      margin-bottom: 12px; }
+    section #user-settings p, section #triggers-setup p {
+      margin: 8px 0px; }
+    section #user-settings .wrapper, section #triggers-setup .wrapper {
+      box-sizing: border-box;
+      padding: 10px 14px;
+      width: 100%;
+      min-height: 250px;
+      background-color: #FFFFFF;
+      border-radius: 7px; }
 
 /* Mobile */
+@media screen and (max-width: 850px) {
+  section #user-settings, section #triggers-setup {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px; } }
 @media screen and (max-width: 700px) {
   header hr {
     margin-bottom: 20px; }
@@ -149,20 +183,21 @@ section {
   nav {
     float: none;
     height: 70px;
-    max-width: 100%;
-    white-space: nowrap;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch; }
+    width: 100%;
+    white-space: nowrap; }
     nav button {
-      display: inline;
+      display: inline-block;
       margin: 0px;
       padding-top: 28px;
       height: 100%;
+      width: 25%;
       background-size: 30px; }
 
   section {
     width: 100%;
     padding: 10px 12px; } }
+@media screen and (max-width: 600px) {
+  header #title {
+    font-size: 3.2rem; } }
 
 /*# sourceMappingURL=style.css.map */
