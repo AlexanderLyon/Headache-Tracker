@@ -85,6 +85,24 @@ header {
     color: $lightgrey;
   }
 
+  #help-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    background-color: $lightgrey;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover { background-color: $darkgrey; }
+  }
+
   hr {
     margin: -7px 0px 30px 20px;
     border: 3px solid $lightgrey;
@@ -149,6 +167,12 @@ section {
   p {
     color: $darkgrey;
     font-size: 1.1em;
+  }
+
+  h1 {
+    margin: 15px 5px 30px 0px;
+    font-size: 2rem;
+    color: $lightgrey;
   }
 
   h2 {

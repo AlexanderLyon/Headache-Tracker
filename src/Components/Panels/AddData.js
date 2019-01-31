@@ -64,6 +64,7 @@ export class AddData extends React.Component {
   render() {
     return (
       <section>
+        <h1>Add New Data</h1>
         <p>It's been <span className="elapsed-days">{this.state.elapsedDays}</span> days since your last headache</p>
         <button id="addDataBtn" className="btn" onClick={this.handleClick}>
           { this.state.addingData ? 'Cancel' : 'Add Headache Data' }

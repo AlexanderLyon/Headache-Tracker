@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Navigation} from './Navigation';
+import {Help} from './Help';
 import {AddData} from './Panels/AddData';
 import {AllData} from './Panels/AllData';
 import {Insights} from './Panels/Insights';
@@ -11,11 +12,13 @@ export class App extends React.Component {
     super(props);
     this.state = {
       userID: localStorage.getItem('userID'),
-      activePanel: 'AddData'
+      activePanel: 'AddData',
+      showingHelp: false
     };
 
     this.changePanels = this.changePanels.bind(this);
     this.displayPanel = this.displayPanel.bind(this);
+    this.helpClick = this.helpClick.bind(this);
   }
 
 
@@ -50,12 +53,25 @@ export class App extends React.Component {
   }
 
 
+  helpClick(e) {
+    this.setState({ showingHelp: true });
+  }
+
+
   componentDidMount() {
     if (!this.state.userID) {
       // No user ID found, create a new one
       const newID = this.generateID();
       localStorage.setItem('userID', newID);
-      this.setState({ userID: newID });
+      this.setState({ userID: newID }, () => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+          console.log('Posted successfully');
+        };
+        xhr.open('POST', 'utilities/addUser.php');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('userID=' + newID);
+      });
     }
     else {
       console.log(`Welcome back, user ${this.state.userID}`);
@@ -68,6 +84,7 @@ export class App extends React.Component {
       <main>
         <header>
           <h1 id='title'>Headache<br/>Tracker</h1>
+          <div id="help-btn" onClick={this.helpClick}>?</div>
           <hr/>
         </header>
         <Navigation changePanels={this.changePanels} currentPanel={this.state.activePanel}/>

@@ -59,6 +59,22 @@ header #title {
   font-size: 3.4rem;
   letter-spacing: 1px;
   color: #b1b1b1; }
+header #help-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  background-color: #b1b1b1;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer; }
+  header #help-btn:hover {
+    background-color: #6f6e6e; }
 header hr {
   margin: -7px 0px 30px 20px;
   border: 3px solid #b1b1b1;
@@ -114,6 +130,10 @@ section {
   section p {
     color: #6f6e6e;
     font-size: 1.1em; }
+  section h1 {
+    margin: 15px 5px 30px 0px;
+    font-size: 2rem;
+    color: #b1b1b1; }
   section h2 {
     color: #6f6e6e; }
     section h2.coming-soon {

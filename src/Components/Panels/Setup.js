@@ -20,6 +20,7 @@ export class Setup extends React.Component {
   render() {
     return (
       <section>
+        <h1>Tools &amp; Settings</h1>
         <div id="user-settings">
           <h2>User Settings</h2>
           <div className="wrapper">
