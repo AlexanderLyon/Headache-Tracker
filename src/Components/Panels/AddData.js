@@ -72,8 +72,8 @@ export class AddData extends React.Component {
 
         { this.state.addingData &&
           <form id="add-data" action="utilities/receiveData.php" method="POST" onSubmit={this.submitForm}>
-            <div class="field">
-              <label for="todays-weather">Today's Weather</label>
+            <div className="field">
+              <label htmlFor="todays-weather">Today's Weather</label>
               <select id="todays-weather" placeholder="Select one">
                 <option>Sunny/clear</option>
                 <option>Clouds</option>
@@ -82,8 +82,8 @@ export class AddData extends React.Component {
               </select>
             </div>
 
-            <div class="field">
-              <label for="pain-severity">Pain Severity</label>
+            <div className="field">
+              <label htmlFor="pain-severity">Pain Severity</label>
               <select id="pain-severity" placeholder="Rate your pain level">
                 <option>0-2 (Mild)</option>
                 <option>3-4 (Aching)</option>

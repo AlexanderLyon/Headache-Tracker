@@ -18,7 +18,7 @@ export class App extends React.Component {
 
     this.changePanels = this.changePanels.bind(this);
     this.displayPanel = this.displayPanel.bind(this);
-    this.helpClick = this.helpClick.bind(this);
+    this.toggleHelp = this.toggleHelp.bind(this);
   }
 
 
@@ -53,8 +53,13 @@ export class App extends React.Component {
   }
 
 
-  helpClick(e) {
-    this.setState({ showingHelp: true });
+  toggleHelp(e) {
+    if (this.state.showingHelp) {
+      this.setState({ showingHelp: false });
+    }
+    else {
+      this.setState({ showingHelp: true });
+    }
   }
 
 
@@ -84,9 +89,12 @@ export class App extends React.Component {
       <main>
         <header>
           <h1 id='title'>Headache<br/>Tracker</h1>
-          <div id="help-btn" onClick={this.helpClick}>?</div>
+          <div id='help-btn' onClick={this.toggleHelp}>?</div>
           <hr/>
         </header>
+        { this.state.showingHelp &&
+          <Help closeMenu={this.toggleHelp}/>
+        }
         <Navigation changePanels={this.changePanels} currentPanel={this.state.activePanel}/>
         { this.displayPanel() }
       </main>
