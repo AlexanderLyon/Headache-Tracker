@@ -5,18 +5,21 @@ export class AddData extends React.Component {
     super(props);
     this.state = {
       addingData: false,
+      showingConfirmation: false,
+      charsRemaining: 100,
       elapsedDays: 0
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.notesKeyup = this.notesKeyup.bind(this);
   }
 
 
   handleClick(e) {
     // Toggles form visibility
     if (this.state.addingData) {
-      this.setState({ addingData: false });
+      this.setState({ addingData: false, charsRemaining: 100 });
     }
     else {
       this.setState({ addingData: true });
@@ -32,6 +35,7 @@ export class AddData extends React.Component {
       'userID': this.props.userID,
       'todays-weather': document.getElementById('todays-weather').value,
       'pain-severity': document.getElementById('pain-severity').value,
+      'notes': document.getElementById('entry-notes').value
     }
 
     // Turn the data object into an array of URL-encoded key/value pairs.
@@ -46,6 +50,7 @@ export class AddData extends React.Component {
         // Completed successfully
         this.setState({
           addingData: false,
+          showingConfirmation: true,
           elapsedDays: 0
         });
       }
@@ -58,6 +63,12 @@ export class AddData extends React.Component {
     xhr.open('POST', e.target.getAttribute('action'));
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(urlEncodedData);
+  }
+
+
+  notesKeyup(e) {
+    const charCount = e.currentTarget.value.length;
+    this.setState({charsRemaining: 100 - charCount});
   }
 
 
@@ -90,6 +101,16 @@ export class AddData extends React.Component {
                 <option>5-7 (Painful)</option>
                 <option>8-10 (Excruciating)</option>
               </select>
+            </div>
+
+            <div className="field full-width">
+              <label htmlFor="entry-notes">Notes</label>
+              <textarea id="entry-notes" 
+                maxlength="100" 
+                placeholder="Enter any special notes"
+                onKeyUp={this.notesKeyup}>
+              </textarea>
+              <p id="characters"><span id="char-count">{this.state.charsRemaining}</span></p>
             </div>
             
             <button type="submit" className="btn">Submit</button>

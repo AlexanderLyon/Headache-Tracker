@@ -161,7 +161,7 @@ section {
   box-sizing: border-box;
   min-height: 100vh;
   width: calc(100% - 100px);
-  padding: 10px 30px;
+  padding: 10px 43px;
   background-color: #f0f1f3;
 
   p {
@@ -191,11 +191,19 @@ section {
 
   form#add-data {
     padding: 20px 0px;
+    max-width: 700px;
 
     .field {
       display: inline-block;
-      width: 200px;
-      margin: 10px 55px 10px 0px;
+      box-sizing: border-box;
+      width: 50%;
+      padding: 7px 12px;
+      vertical-align: top;
+
+      &.full-width {
+        display: block;
+        width: 100%;
+      }
 
       label {
         display: block;
@@ -206,10 +214,11 @@ section {
   
       input[type="text"], input[type="date"], select {
         color: $red;
+        box-sizing: border-box;
         background-color: white;
         -moz-appearance: none; 
         -webkit-appearance: none; 
-        padding: 0px 10px;
+        padding: 10px;
         font-size: 0.9rem;
         border: none;
         border-radius: 7px;
@@ -222,11 +231,38 @@ section {
           box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55);
         }
       }
+
+      textarea {
+        box-sizing: border-box;
+        color: $red;
+        background-color: white;
+        -moz-appearance: none; 
+        -webkit-appearance: none; 
+        padding: 10px;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 7px;
+        height: 130px;
+        width: 100%;
+        transition: 150ms;
+        resize: none;
+  
+        &:focus {
+          outline: none;
+          box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55);
+        }
+      }
+
+      #characters {
+        float: right;
+        margin: 2px 0px;
+        color: $lightgrey;
+      }
     }
 
     button[type="submit"] {
       display: block;
-      margin-top: 20px;
+      margin: 20px 0px 0px 12px;
     }
   }
 
@@ -341,6 +377,20 @@ section {
     #help-dialog {
       top: calc(50% - 150px);
       height: 300px;
+    }
+  }
+
+  section {
+    form#add-data {
+      .field {
+        display: block;
+        width: 100%;
+        padding: 6px 0px;
+      }
+
+      button[type="submit"] {
+        margin-left: 0px;
+      }
     }
   }
 }
