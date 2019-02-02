@@ -12,7 +12,20 @@ export class Setup extends React.Component {
   deleteUserData(e) {
     if (confirm('Are you sure? This will permanently delete all history, triggers, and settings.')) {
       // TODO: delete data
-      alert('Data successfully deleted');
+      const xhr = new XMLHttpRequest();
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          localStorage.clear('userID');
+          alert('Data successfully deleted');
+        }
+      };
+
+      xhr.onerror = () => {
+        console.error('Unable to remove user data');
+      };
+      xhr.open('POST', 'utilities/clearUserData.php');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send('userID=' + this.props.userID);
     }
   }
 

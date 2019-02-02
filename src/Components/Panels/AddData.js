@@ -66,11 +66,6 @@ export class AddData extends React.Component {
   }
 
 
-  hideConfirmation() {
-
-  }
-
-
   notesKeyup(e) {
     const charCount = e.currentTarget.value.length;
     this.setState({charsRemaining: 100 - charCount});
