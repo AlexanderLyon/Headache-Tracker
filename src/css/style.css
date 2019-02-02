@@ -142,6 +142,12 @@ section {
   section .elapsed-days {
     color: #DA4359;
     font-weight: bold; }
+  section #addDataBtn span {
+    display: flex;
+    align-items: center; }
+    section #addDataBtn span i {
+      margin-right: 10px;
+      font-size: 1.3em; }
   section form#add-data {
     padding: 20px 0px;
     max-width: 700px; }
@@ -165,7 +171,7 @@ section {
         background-color: white;
         -moz-appearance: none;
         -webkit-appearance: none;
-        padding: 10px;
+        padding: 1px 10px;
         font-size: 0.9rem;
         border: none;
         border-radius: 7px;
@@ -199,6 +205,12 @@ section {
     section form#add-data button[type="submit"] {
       display: block;
       margin: 20px 0px 0px 12px; }
+  section #submit-confirmation {
+    display: block;
+    margin-top: 25px;
+    color: #b1b1b1; }
+    section #submit-confirmation i {
+      margin-right: 5px; }
   section #user-settings {
     float: left; }
   section #user-settings, section #triggers-setup {

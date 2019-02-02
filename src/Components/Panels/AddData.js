@@ -19,10 +19,10 @@ export class AddData extends React.Component {
   handleClick(e) {
     // Toggles form visibility
     if (this.state.addingData) {
-      this.setState({ addingData: false, charsRemaining: 100 });
+      this.setState({ addingData: false, charsRemaining: 100, showingConfirmation: false });
     }
     else {
-      this.setState({ addingData: true });
+      this.setState({ addingData: true, showingConfirmation: false });
     }
   }
 
@@ -66,6 +66,11 @@ export class AddData extends React.Component {
   }
 
 
+  hideConfirmation() {
+
+  }
+
+
   notesKeyup(e) {
     const charCount = e.currentTarget.value.length;
     this.setState({charsRemaining: 100 - charCount});
@@ -78,8 +83,11 @@ export class AddData extends React.Component {
         <h1>Add New Data</h1>
         <p>It's been <span className="elapsed-days">{this.state.elapsedDays}</span> days since your last headache</p>
         <button id="addDataBtn" className="btn" onClick={this.handleClick}>
-          { this.state.addingData ? 'Cancel' : 'Add Headache Data' }
+          { this.state.addingData ? <span><i className="fas fa-times"></i> Cancel</span> : 'Add Headache Data' }
         </button>
+        { this.state.showingConfirmation &&
+          <p id="submit-confirmation"><i className="fas fa-check"></i> Submitted</p>
+        }
 
         { this.state.addingData &&
           <form id="add-data" action="utilities/receiveData.php" method="POST" onSubmit={this.submitForm}>
