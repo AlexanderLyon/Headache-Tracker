@@ -52,6 +52,8 @@ export class AddData extends React.Component {
           addingData: false,
           showingConfirmation: true,
           elapsedDays: 0
+        }, () => {
+          this.props.updateEntries();
         });
       }
     };

@@ -12,10 +12,12 @@ export class App extends React.Component {
     super(props);
     this.state = {
       userID: localStorage.getItem('userID'),
+      previousEntries: null,
       activePanel: 'AddData',
       showingHelp: false
     };
 
+    this.fetchPreviousEntries = this.fetchPreviousEntries.bind(this);
     this.changePanels = this.changePanels.bind(this);
     this.displayPanel = this.displayPanel.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
@@ -31,10 +33,10 @@ export class App extends React.Component {
     // Returns the active panel to be displayed
     switch (this.state.activePanel) {
       case 'AddData':
-        return <AddData userID={this.state.userID}/>;
+        return <AddData userID={this.state.userID} updateEntries={this.fetchPreviousEntries}/>;
         break;
       case 'AllData':
-        return <AllData/>;
+        return <AllData previousEntries={this.state.previousEntries}/>;
         break;
       case 'Insights':
         return <Insights/>;
@@ -63,6 +65,24 @@ export class App extends React.Component {
   }
 
 
+  fetchPreviousEntries() {
+    /* Retreives updated historical user data */
+    const xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        this.setState({ previousEntries: data });
+      }
+      else {
+        console.error('Unable to retreive data');
+      }
+    };
+    xhr.open('POST', 'utilities/getPreviousData.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('userID=' + this.state.userID);
+  }
+
+
   componentDidMount() {
     if (!this.state.userID) {
       // No user ID found, create a new one
@@ -79,7 +99,9 @@ export class App extends React.Component {
       });
     }
     else {
+      // Returning user, fetch previous entries
       console.log(`Welcome back, user ${this.state.userID}`);
+      this.fetchPreviousEntries();
     }
   }
 
