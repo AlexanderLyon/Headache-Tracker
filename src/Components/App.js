@@ -91,7 +91,7 @@ export class App extends React.Component {
       this.setState({ userID: newID }, () => {
         const xhr = new XMLHttpRequest();
         xhr.onload = () => {
-          console.log('Posted successfully');
+          // console.log('Posted successfully');
         };
         xhr.open('POST', 'utilities/addUser.php');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

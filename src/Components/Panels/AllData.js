@@ -10,19 +10,21 @@ export class AllData extends React.Component {
 
 
   populateTable() {
-    const tableRows = this.props.previousEntries.map( (entry) => {
-      const key = this.props.listTitle + entry.id;
-      return (
-        <tr>
-          <td>{entry.formattedDate}</td>
-          <td>{entry.todaysWeather}</td>
-          <td>{entry.painLevel}</td>
-          <td>{entry.notes}</td>
-        </tr>
-      );
-    });
-
-    return tableRows;
+    if (this.props.previousEntries) {
+      const tableRows = this.props.previousEntries.map( (entry) => {
+        const key = this.props.listTitle + entry.id;
+        return (
+          <tr>
+            <td>{entry.formattedDate}</td>
+            <td>{entry.todaysWeather}</td>
+            <td>{entry.painLevel}</td>
+            <td>{entry.notes}</td>
+          </tr>
+        );
+      });
+  
+      return tableRows;
+    }
   }
 
 
@@ -45,7 +47,7 @@ export class AllData extends React.Component {
                 {this.populateTable()}
               </tbody>
             </table>
-            { !this.props.previousEntries.length &&
+            { (!this.props.previousEntries || !this.props.previousEntries.length) &&
               <h3 id="no-data">No data</h3>
             }
           </div>
