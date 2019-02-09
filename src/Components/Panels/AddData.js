@@ -94,7 +94,8 @@ export class AddData extends React.Component {
               <label htmlFor="todays-weather">Today's Weather</label>
               <select id="todays-weather" placeholder="Select one">
                 <option>Sunny/clear</option>
-                <option>Clouds</option>
+                <option>Partly Cloudy</option>
+                <option>Mostly Cloudy</option>
                 <option>Rain</option>
                 <option>Snow</option>
               </select>
@@ -120,7 +121,8 @@ export class AddData extends React.Component {
               <label htmlFor="tomorrows-weather">Tomorrow's Weather</label>
               <select id="tomorrows-weather" placeholder="Select one">
                 <option>Sunny/clear</option>
-                <option>Clouds</option>
+                <option>Partly Cloudy</option>
+                <option>Mostly Cloudy</option>
                 <option>Rain</option>
                 <option>Snow</option>
               </select>

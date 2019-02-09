@@ -290,7 +290,11 @@ section {
     i { margin-right: 5px; }
   }
 
-  #user-settings { float: left; }
+  #user-settings {
+    float: left;
+
+    button { margin-top: 3px; }
+  }
 
   #user-settings, #triggers-setup {
     display: inline-block;

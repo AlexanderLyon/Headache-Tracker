@@ -5,18 +5,36 @@ export class Setup extends React.Component {
     super(props);
     this.state = {};
 
+    this.linkUserID = this.linkUserID.bind(this);
     this.deleteUserData = this.deleteUserData.bind(this);
   }
 
+
+  linkUserID() {
+    const linkedID = prompt(`Enter the user ID number that you want to load data from.\nWARNING: Linking data from another ID will delete all current data. This action will be permanent.`);
+
+    if ((linkedID != null) && (linkedID.trim() !== '')) {
+      if (!linkedID.match(/[a-z]/i) && linkedID.length === 12) {
+        this.deleteUserData(null, true);
+        this.props.changeUserID(linkedID);
+      }
+      else {
+        alert('Please supply a properly formatted user ID.');
+      }
+    }
+  }
+
   
-  deleteUserData(e) {
-    if (confirm('Are you sure? This will permanently delete all history, triggers, and settings.')) {
+  deleteUserData(e, skipConfirmation) {
+    if (skipConfirmation || confirm('Are you sure? This will permanently delete all history, triggers, and settings.')) {
       // TODO: delete data
       const xhr = new XMLHttpRequest();
       xhr.onload = () => {
         if (xhr.status === 200) {
           localStorage.clear('userID');
-          alert('Data successfully deleted');
+          if (!skipConfirmation) {
+            alert('Data successfully deleted');
+          }
         }
       };
 
@@ -39,6 +57,8 @@ export class Setup extends React.Component {
           <div className="wrapper">
             <p>Your unique user ID: <span><b> {this.props.userID} </b></span></p>
             <button className="btn ghost-btn" onClick={this.deleteUserData}>Delete All Data</button>
+            <p>Link data from another device</p>
+            <button className="btn ghost-btn" onClick={this.linkUserID}>Enter New User ID</button>
           </div>
         </div>
         <div id="triggers-setup">

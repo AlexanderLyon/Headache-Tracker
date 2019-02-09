@@ -214,6 +214,8 @@ section {
       margin-right: 5px; }
   section #user-settings {
     float: left; }
+    section #user-settings button {
+      margin-top: 3px; }
   section #user-settings, section #triggers-setup {
     display: inline-block;
     box-sizing: border-box;

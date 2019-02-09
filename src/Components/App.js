@@ -19,6 +19,7 @@ export class App extends React.Component {
     };
 
     this.fetchPreviousEntries = this.fetchPreviousEntries.bind(this);
+    this.loadLinkedUserID = this.loadLinkedUserID.bind(this);
     this.changePanels = this.changePanels.bind(this);
     this.displayPanel = this.displayPanel.bind(this);
     this.calculateElapsedDays = this.calculateElapsedDays.bind(this);
@@ -44,7 +45,7 @@ export class App extends React.Component {
         return <Insights/>;
         break;
       case 'Setup':
-        return <Setup userID={this.state.userID}/>;
+        return <Setup userID={this.state.userID} changeUserID={this.loadLinkedUserID}/>;
         break;
     }
   }
@@ -101,6 +102,19 @@ export class App extends React.Component {
     xhr.open('POST', 'utilities/getPreviousData.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('userID=' + this.state.userID);
+  }
+
+
+  loadLinkedUserID(linkedID) {
+    // Loads new data from a different user ID
+    console.log(`Linking data from "${linkedID}"...`);
+    this.setState({
+      userID: linkedID,
+      previousEntries: null
+    }, () => {
+      localStorage.setItem('userID', linkedID);
+      this.fetchPreviousEntries();
+    });
   }
 
 
