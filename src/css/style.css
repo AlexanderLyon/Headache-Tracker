@@ -63,12 +63,12 @@ header #help-btn {
   position: absolute;
   top: 5px;
   right: 10px;
-  color: #DA4359;
+  color: #b1b1b1;
   font-size: 26px;
   text-align: center;
   cursor: pointer; }
   header #help-btn:hover {
-    color: #b93144; }
+    color: #6f6e6e; }
 header hr {
   margin: -7px 0px 30px 20px;
   border: 3px solid #b1b1b1;
@@ -230,6 +230,15 @@ section {
       min-height: 250px;
       background-color: #FFFFFF;
       border-radius: 7px; }
+  section #about {
+    width: 100%;
+    margin-top: 35px;
+    padding: 0px 25px;
+    font-size: 1.1em; }
+    section #about h2 {
+      margin-bottom: 12px; }
+    section #about p {
+      margin-top: 0px; }
   section#all-data #history {
     box-sizing: border-box;
     padding: 0px 25px; }
@@ -317,7 +326,7 @@ section {
     padding: 10px 18px; }
     section#all-data #history {
       padding: 0px; }
-    section #user-settings, section #triggers-setup {
+    section #user-settings, section #triggers-setup, section #about {
       padding: 0px; } }
 @media screen and (max-width: 600px) {
   header #title {

@@ -90,12 +90,12 @@ header {
     position: absolute;
     top: 5px;
     right: 10px;
-    color: $red;
+    color: $lightgrey;
     font-size: 26px;
     text-align: center;
     cursor: pointer;
 
-    &:hover { color: $darkred; }
+    &:hover { color: $darkgrey; }
   }
 
   hr {
@@ -312,6 +312,16 @@ section {
     }
   }
 
+  #about {
+    width: 100%;
+    margin-top: 35px;
+    padding: 0px 25px;
+    font-size: 1.1em;
+
+    h2 { margin-bottom: 12px; }
+    p { margin-top: 0px; }
+  }
+
   &#all-data {
     #history {
       box-sizing: border-box;
@@ -439,7 +449,7 @@ section {
       #history { padding: 0px; }
     }
 
-    #user-settings, #triggers-setup { padding: 0px; }
+    #user-settings, #triggers-setup, #about { padding: 0px; }
   }
 }
 

@@ -47,6 +47,10 @@ export class Setup extends React.Component {
             <p>Define custom headache triggers that you want to track in your data. This feature is <em>coming soon!</em></p>
           </div>
         </div>
+        <div id="about">
+          <h2>About</h2>
+          <p>Headache Tracker presents an intuitive way to record headaches each time you experience one, including data such as the current weather conditions, barometric pressure, and more. Using the power of machine learning, your data is analyzed and used to create accurate predications based on the underlying patterns behind your data.</p>
+        </div>
       </section>
     );
   }
