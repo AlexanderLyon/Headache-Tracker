@@ -29,10 +29,11 @@ export class AddData extends React.Component {
   submitForm(e) {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
+    const now = new Date();
     let urlEncodedDataPairs = [];
     const data = {
       'userID': this.props.userID,
-      'timestamp': Date.now(),
+      'timestamp': now.toUTCString(),
       'todays-weather': document.getElementById('todays-weather').value,
       'tomorrows-weather': document.getElementById('tomorrows-weather').value,
       'barometric-pressure': document.getElementById('barometric-pressure').value,

@@ -21,6 +21,7 @@ export class App extends React.Component {
     this.fetchPreviousEntries = this.fetchPreviousEntries.bind(this);
     this.changePanels = this.changePanels.bind(this);
     this.displayPanel = this.displayPanel.bind(this);
+    this.calculateElapsedDays = this.calculateElapsedDays.bind(this);
     this.toggleHelp = this.toggleHelp.bind(this);
   }
 
@@ -66,13 +67,32 @@ export class App extends React.Component {
   }
 
 
+  calculateElapsedDays(postedTimestamp) {
+    const lastTimestamp = new Date(postedTimestamp);
+    lastTimestamp.setHours(0, 0, 0);
+
+    const now = new Date();
+    now.toUTCString();
+    now.setHours(0, 0, 0);
+
+    return Math.round((now - lastTimestamp) / (1000*60*60*24));
+  }
+
+
   fetchPreviousEntries() {
     /* Retreives updated historical user data */
     const xhr = new XMLHttpRequest();
     xhr.onload = () => {
       if (xhr.status === 200) {
         const data = JSON.parse(xhr.responseText);
-        this.setState({ previousEntries: data });
+        let daysSinceHeadache = 0;
+        if (data.length) {
+          daysSinceHeadache = this.calculateElapsedDays(data[0]['postedTimestamp']);
+        }
+        this.setState({
+          previousEntries: data,
+          elapsedDays: daysSinceHeadache
+        });
       }
       else {
         console.error('Unable to retreive data');
