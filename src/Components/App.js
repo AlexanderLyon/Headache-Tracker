@@ -14,7 +14,8 @@ export class App extends React.Component {
       userID: localStorage.getItem('userID'),
       previousEntries: null,
       activePanel: 'AddData',
-      showingHelp: false
+      showingHelp: false,
+      elapsedDays: 0
     };
 
     this.fetchPreviousEntries = this.fetchPreviousEntries.bind(this);
@@ -33,7 +34,7 @@ export class App extends React.Component {
     // Returns the active panel to be displayed
     switch (this.state.activePanel) {
       case 'AddData':
-        return <AddData userID={this.state.userID} updateEntries={this.fetchPreviousEntries}/>;
+        return <AddData userID={this.state.userID} elapsedDays={this.state.elapsedDays} updateEntries={this.fetchPreviousEntries}/>;
         break;
       case 'AllData':
         return <AllData previousEntries={this.state.previousEntries}/>;
@@ -111,7 +112,7 @@ export class App extends React.Component {
       <main>
         <header>
           <h1 id='title'>Headache<br/>Tracker</h1>
-          <div id='help-btn' onClick={this.toggleHelp}>?</div>
+          <div id='help-btn' onClick={this.toggleHelp}><i className="fa fa-question-circle"></i></div>
           <hr/>
         </header>
         { this.state.showingHelp &&

@@ -61,20 +61,14 @@ header #title {
   color: #b1b1b1; }
 header #help-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  color: white;
-  background-color: #b1b1b1;
-  height: 30px;
-  width: 30px;
-  line-height: 30px;
-  font-size: 20px;
-  font-weight: bold;
+  top: 5px;
+  right: 10px;
+  color: #DA4359;
+  font-size: 26px;
   text-align: center;
-  border-radius: 50%;
   cursor: pointer; }
   header #help-btn:hover {
-    background-color: #6f6e6e; }
+    color: #b93144; }
 header hr {
   margin: -7px 0px 30px 20px;
   border: 3px solid #b1b1b1;
@@ -165,6 +159,13 @@ section {
         margin: 7px 0px;
         color: #6f6e6e;
         font-size: 1.1em; }
+        section form#add-data .field label[for="barometric-pressure"] {
+          display: inline-block; }
+      section form#add-data .field a, section form#add-data .field a:visited {
+        color: #DA4359;
+        text-decoration: none; }
+        section form#add-data .field a:hover, section form#add-data .field a:visited:hover {
+          color: #b93144; }
       section form#add-data .field input[type="text"], section form#add-data .field input[type="date"], section form#add-data .field select {
         color: #DA4359;
         box-sizing: border-box;

@@ -6,8 +6,7 @@ export class AddData extends React.Component {
     this.state = {
       addingData: false,
       showingConfirmation: false,
-      charsRemaining: 100,
-      elapsedDays: 0
+      charsRemaining: 100
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -33,7 +32,10 @@ export class AddData extends React.Component {
     let urlEncodedDataPairs = [];
     const data = {
       'userID': this.props.userID,
+      'timestamp': Date.now(),
       'todays-weather': document.getElementById('todays-weather').value,
+      'tomorrows-weather': document.getElementById('tomorrows-weather').value,
+      'barometric-pressure': document.getElementById('barometric-pressure').value,
       'pain-severity': document.getElementById('pain-severity').value,
       'notes': document.getElementById('entry-notes').value
     }
@@ -50,8 +52,7 @@ export class AddData extends React.Component {
         // Completed successfully
         this.setState({
           addingData: false,
-          showingConfirmation: true,
-          elapsedDays: 0
+          showingConfirmation: true
         }, () => {
           this.props.updateEntries();
         });
@@ -78,7 +79,7 @@ export class AddData extends React.Component {
     return (
       <section>
         <h1>Add New Data</h1>
-        <p>It's been <span className="elapsed-days">{this.state.elapsedDays}</span> days since your last headache</p>
+        <p>It's been <span className="elapsed-days">{this.props.elapsedDays}</span> days since your last headache</p>
         <button id="addDataBtn" className="btn" onClick={this.handleClick}>
           { this.state.addingData ? <span><i className="fas fa-times"></i> Cancel</span> : 'Add Headache Data' }
         </button>
@@ -101,11 +102,32 @@ export class AddData extends React.Component {
             <div className="field">
               <label htmlFor="pain-severity">Pain Severity</label>
               <select id="pain-severity" placeholder="Rate your pain level">
-                <option>0-2 (Mild)</option>
-                <option>3-4 (Aching)</option>
-                <option>5-7 (Painful)</option>
-                <option>8-10 (Excruciating)</option>
+                <option>1 (Mild)</option>
+                <option>2</option>
+                <option>3 (Aching)</option>
+                <option>4</option>
+                <option>5 (Painful)</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10 (Excruciating)</option>
               </select>
+            </div>
+
+            <div className="field">
+              <label htmlFor="tomorrows-weather">Tomorrow's Weather</label>
+              <select id="tomorrows-weather" placeholder="Select one">
+                <option>Sunny/clear</option>
+                <option>Clouds</option>
+                <option>Rain</option>
+                <option>Snow</option>
+              </select>
+            </div>
+
+            <div className="field">
+              <label htmlFor="barometric-pressure">Current Barometric Pressure</label> <a href="https://darksky.net/forecast/" target="_blank"><i className="fa fa-question-circle"></i></a>
+              <input type="text" id="barometric-pressure" placeholder="Enter Pressure (mb)"/>
             </div>
 
             <div className="field full-width">

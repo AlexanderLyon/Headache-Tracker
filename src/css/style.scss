@@ -88,20 +88,14 @@ header {
 
   #help-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    color: white;
-    background-color: $lightgrey;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
-    font-size: 20px;
-    font-weight: bold;
+    top: 5px;
+    right: 10px;
+    color: $red;
+    font-size: 26px;
     text-align: center;
-    border-radius: 50%;
     cursor: pointer;
 
-    &:hover { background-color: $darkgrey; }
+    &:hover { color: $darkred; }
   }
 
   hr {
@@ -223,6 +217,15 @@ section {
         margin: 7px 0px;
         color: $darkgrey;
         font-size: 1.1em;
+
+        &[for="barometric-pressure"] { display: inline-block; }
+      }
+
+      a, a:visited {
+        color: $red;
+        text-decoration: none;
+
+        &:hover { color: $darkred; }
       }
   
       input[type="text"], input[type="date"], select {
