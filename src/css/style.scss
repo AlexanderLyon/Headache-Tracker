@@ -3,17 +3,26 @@
   font-family: "GlacialIndifference";
   src: url("../../fonts/GlacialIndifference-Regular.woff");
   font-weight: normal;
-  }
+}
 @font-face {
   font-family: "GlacialIndifference";
   src: url("../../fonts/GlacialIndifference-Bold.woff");
   font-weight: bold;
-  }
+}
   @font-face {
   font-family: "GlacialIndifference";
   src: url("../../fonts/GlacialIndifference-Italic.woff");
   font-style: italic;
-   }
+}
+
+@-webkit-keyframes slide-in {
+  0% { margin-left: calc(100% + 30px); }
+  100% { margin-left: 0px; }
+}
+@keyframes slide-in {
+  0% { margin-left: calc(100% + 30px); }
+  100% { margin-left: 0px; }
+}
 
 
 $red: #DA4359;
@@ -157,6 +166,7 @@ section {
   min-height: 100vh;
   width: calc(100% - 100px);
   padding: 10px 43px;
+  overflow-x: hidden;
   background-color: $lightergrey;
 
   p {
@@ -165,17 +175,33 @@ section {
   }
 
   h1 {
-    margin: 15px 5px 30px 0px;
+    margin: 15px 5px 45px 0px;
     font-size: 2rem;
     color: $lightgrey;
   }
 
   h2 {
     color: $darkgrey;
-  
-    &.coming-soon {
-      margin: 20px auto;
-      text-align:center;
+  }
+
+  .card {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    min-height: 200px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+
+    h3 {
+      margin: 8px 0px;
+      color: #6f6e6e;
+    }
+
+    &.half {
+      margin: 0px 25px 30px 25px;
+      width: calc(50% - 50px);
+      vertical-align: top;
     }
   }
 
@@ -199,6 +225,8 @@ section {
   form#add-data {
     padding: 20px 0px;
     max-width: 700px;
+    -webkit-animation: slide-in 400ms ease;
+    animation: slide-in 400ms ease;
 
     .field {
       display: inline-block;
@@ -290,6 +318,23 @@ section {
     i { margin-right: 5px; }
   }
 
+  #no-insight-data {
+    text-align: center;
+
+    h2 { margin: 45px auto 0px auto; }
+    p { font-size: 1em; }
+  }
+
+  #insights {
+    & > .card {
+      p.data-output {
+        color: $red;
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
+  }
+
   #user-settings {
     float: left;
 
@@ -302,17 +347,13 @@ section {
     width: 50%;
     padding: 0px 25px;
 
-    h2 { margin-bottom: 12px; }
+    h2 { margin: 0px 0px 12px 0px; }
 
     p { margin: 8px 0px; }
 
     .wrapper {
-      box-sizing: border-box;
-      padding: 10px 15px;
       width: 100%;
       min-height: 250px;
-      background-color: #FFFFFF;
-      border-radius: 7px;
     }
   }
 
@@ -409,6 +450,12 @@ section {
 /* Mobile */
 @media screen and (max-width: 850px) {
   section {
+    .card.half {
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
     #user-settings, #triggers-setup {
       display: block;
       width: 100%;

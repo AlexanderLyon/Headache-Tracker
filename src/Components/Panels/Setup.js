@@ -54,7 +54,7 @@ export class Setup extends React.Component {
         <h1>Tools &amp; Settings</h1>
         <div id="user-settings">
           <h2>User Settings</h2>
-          <div className="wrapper">
+          <div className="wrapper card">
             <p>Your unique user ID: <span><b> {this.props.userID} </b></span></p>
             <button className="btn ghost-btn" onClick={this.deleteUserData}>Delete All Data</button>
             <p>Link data from another device</p>
@@ -63,7 +63,7 @@ export class Setup extends React.Component {
         </div>
         <div id="triggers-setup">
           <h2>Custom Triggers</h2>
-          <div className="wrapper">
+          <div className="wrapper card">
             <p>Define custom headache triggers that you want to track in your data. This feature is <em>coming soon!</em></p>
           </div>
         </div>

@@ -10,6 +10,16 @@
   font-family: "GlacialIndifference";
   src: url("../../fonts/GlacialIndifference-Italic.woff");
   font-style: italic; }
+@-webkit-keyframes slide-in {
+  0% {
+    margin-left: calc(100% + 30px); }
+  100% {
+    margin-left: 0px; } }
+@keyframes slide-in {
+  0% {
+    margin-left: calc(100% + 30px); }
+  100% {
+    margin-left: 0px; } }
 * {
   font-family: "GlacialIndifference", sans-serif; }
 
@@ -120,19 +130,32 @@ section {
   min-height: 100vh;
   width: calc(100% - 100px);
   padding: 10px 43px;
+  overflow-x: hidden;
   background-color: #f0f1f3; }
   section p {
     color: #6f6e6e;
     font-size: 1.1em; }
   section h1 {
-    margin: 15px 5px 30px 0px;
+    margin: 15px 5px 45px 0px;
     font-size: 2rem;
     color: #b1b1b1; }
   section h2 {
     color: #6f6e6e; }
-    section h2.coming-soon {
-      margin: 20px auto;
-      text-align: center; }
+  section .card {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    min-height: 200px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 7px; }
+    section .card h3 {
+      margin: 8px 0px;
+      color: #6f6e6e; }
+    section .card.half {
+      margin: 0px 25px 30px 25px;
+      width: calc(50% - 50px);
+      vertical-align: top; }
   section .elapsed-days {
     color: #DA4359;
     font-weight: bold; }
@@ -144,7 +167,9 @@ section {
       font-size: 1.3em; }
   section form#add-data {
     padding: 20px 0px;
-    max-width: 700px; }
+    max-width: 700px;
+    -webkit-animation: slide-in 400ms ease;
+    animation: slide-in 400ms ease; }
     section form#add-data .field {
       display: inline-block;
       box-sizing: border-box;
@@ -212,6 +237,16 @@ section {
     color: #b1b1b1; }
     section #submit-confirmation i {
       margin-right: 5px; }
+  section #no-insight-data {
+    text-align: center; }
+    section #no-insight-data h2 {
+      margin: 45px auto 0px auto; }
+    section #no-insight-data p {
+      font-size: 1em; }
+  section #insights > .card p.data-output {
+    color: #DA4359;
+    font-size: 2em;
+    font-weight: bold; }
   section #user-settings {
     float: left; }
     section #user-settings button {
@@ -222,16 +257,12 @@ section {
     width: 50%;
     padding: 0px 25px; }
     section #user-settings h2, section #triggers-setup h2 {
-      margin-bottom: 12px; }
+      margin: 0px 0px 12px 0px; }
     section #user-settings p, section #triggers-setup p {
       margin: 8px 0px; }
     section #user-settings .wrapper, section #triggers-setup .wrapper {
-      box-sizing: border-box;
-      padding: 10px 15px;
       width: 100%;
-      min-height: 250px;
-      background-color: #FFFFFF;
-      border-radius: 7px; }
+      min-height: 250px; }
   section #about {
     width: 100%;
     margin-top: 35px;
@@ -298,6 +329,10 @@ section {
 
 /* Mobile */
 @media screen and (max-width: 850px) {
+  section .card.half {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px; }
   section #user-settings, section #triggers-setup {
     display: block;
     width: 100%;

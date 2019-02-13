@@ -42,7 +42,7 @@ export class App extends React.Component {
         return <AllData previousEntries={this.state.previousEntries}/>;
         break;
       case 'Insights':
-        return <Insights/>;
+        return <Insights previousEntries={this.state.previousEntries}/>;
         break;
       case 'Setup':
         return <Setup userID={this.state.userID} changeUserID={this.loadLinkedUserID}/>;

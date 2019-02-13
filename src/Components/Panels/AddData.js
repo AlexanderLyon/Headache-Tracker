@@ -106,11 +106,11 @@ export class AddData extends React.Component {
               <select id="pain-severity" placeholder="Rate your pain level">
                 <option>1 (Mild)</option>
                 <option>2</option>
-                <option>3 (Aching)</option>
-                <option>4</option>
-                <option>5 (Painful)</option>
+                <option>3</option>
+                <option>4 (Aching)</option>
+                <option>5</option>
                 <option>6</option>
-                <option>7</option>
+                <option>7 (Painful)</option>
                 <option>8</option>
                 <option>9</option>
                 <option>10 (Excruciating)</option>
