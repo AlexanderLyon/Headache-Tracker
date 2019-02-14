@@ -476,6 +476,41 @@ section {
     hr { margin-bottom: 20px; }
   }
 
+  button.btn {
+    &:hover, &:focus {
+      outline: none;
+      box-shadow: 1px 1px 14px -2px $red;
+      background-color: $red;
+      border-color: $red;
+    }
+  
+    &:active {
+      box-shadow: none;
+      color: white;
+      background-color: $darkred;
+    }
+  
+    &.ghost-btn {
+      background-color: transparent;
+      color: $red;
+      box-shadow: none;
+
+      &:hover {
+        background-color: transparent;
+        color: $red;
+        box-shadow: none;
+      }
+  
+      &:active {
+        color: white;
+        background-color: $red;
+        border-color: $red;
+      }
+  
+      &:focus { box-shadow: none; }
+    }
+  }
+
   nav {
     float: none;
     height: 70px;

@@ -69,11 +69,10 @@ export class App extends React.Component {
 
 
   calculateElapsedDays(postedTimestamp) {
-    const lastTimestamp = new Date(postedTimestamp);
+    const lastTimestamp = new Date(parseInt(postedTimestamp));
     lastTimestamp.setHours(0, 0, 0);
 
     const now = new Date();
-    now.toUTCString();
     now.setHours(0, 0, 0);
 
     return Math.round((now - lastTimestamp) / (1000*60*60*24));

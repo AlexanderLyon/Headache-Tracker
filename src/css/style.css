@@ -345,6 +345,30 @@ section {
   header hr {
     margin-bottom: 20px; }
 
+  button.btn:hover, button.btn:focus {
+    outline: none;
+    box-shadow: 1px 1px 14px -2px #DA4359;
+    background-color: #DA4359;
+    border-color: #DA4359; }
+  button.btn:active {
+    box-shadow: none;
+    color: white;
+    background-color: #b93144; }
+  button.btn.ghost-btn {
+    background-color: transparent;
+    color: #DA4359;
+    box-shadow: none; }
+    button.btn.ghost-btn:hover {
+      background-color: transparent;
+      color: #DA4359;
+      box-shadow: none; }
+    button.btn.ghost-btn:active {
+      color: white;
+      background-color: #DA4359;
+      border-color: #DA4359; }
+    button.btn.ghost-btn:focus {
+      box-shadow: none; }
+
   nav {
     float: none;
     height: 70px;

@@ -15,8 +15,9 @@ export class Setup extends React.Component {
 
     if ((linkedID != null) && (linkedID.trim() !== '')) {
       if (!linkedID.match(/[a-z]/i) && linkedID.length === 12) {
-        this.deleteUserData(null, true);
-        this.props.changeUserID(linkedID);
+        this.deleteUserData(null, true).then(() => {
+          this.props.changeUserID(linkedID);
+        });
       }
       else {
         alert('Please supply a properly formatted user ID.');
@@ -26,25 +27,33 @@ export class Setup extends React.Component {
 
   
   deleteUserData(e, skipConfirmation) {
-    if (skipConfirmation || confirm('Are you sure? This will permanently delete all history, triggers, and settings.')) {
-      // TODO: delete data
-      const xhr = new XMLHttpRequest();
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          localStorage.clear('userID');
-          if (!skipConfirmation) {
-            alert('Data successfully deleted');
+    return new Promise((resolve, reject) => {
+      if (skipConfirmation || confirm('Are you sure? This will permanently delete all history, triggers, and settings.')) {
+        // TODO: delete data
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            localStorage.clear('userID');
+            if (!skipConfirmation) {
+              alert('Data successfully deleted');
+            }
+            resolve();
           }
-        }
-      };
+        };
+  
+        xhr.onerror = () => {
+          console.error('Unable to remove user data');
+          reject();
+        };
 
-      xhr.onerror = () => {
-        console.error('Unable to remove user data');
-      };
-      xhr.open('POST', 'utilities/clearUserData.php');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.send('userID=' + this.props.userID);
-    }
+        xhr.open('POST', 'utilities/clearUserData.php');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('userID=' + this.props.userID);
+      }
+      else {
+        reject();
+      }
+    });
   }
 
 
