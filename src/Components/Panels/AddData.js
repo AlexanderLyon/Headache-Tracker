@@ -37,6 +37,7 @@ export class AddData extends React.Component {
       'tomorrows-weather': document.getElementById('tomorrows-weather').value,
       'barometric-pressure': document.getElementById('barometric-pressure').value,
       'pain-severity': document.getElementById('pain-severity').value,
+      'took-medicine': document.getElementById('took-medicine').checked,
       'notes': document.getElementById('entry-notes').value
     }
 
@@ -130,6 +131,11 @@ export class AddData extends React.Component {
             <div className="field">
               <label htmlFor="barometric-pressure">Current Barometric Pressure</label> <a href="https://darksky.net/forecast/" target="_blank"><i className="fa fa-question-circle"></i></a>
               <input type="text" id="barometric-pressure" placeholder="Enter Pressure (mb)"/>
+            </div>
+
+            <div className="field">
+              <label htmlFor="took-medicine">Took Medicine</label>
+              <input type="checkbox" id="took-medicine" value="yes"/>
             </div>
 
             <div className="field full-width">

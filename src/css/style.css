@@ -184,7 +184,7 @@ section {
         margin: 7px 0px;
         color: #6f6e6e;
         font-size: 1.1em; }
-        section form#add-data .field label[for="barometric-pressure"] {
+        section form#add-data .field label[for="barometric-pressure"], section form#add-data .field label[for="took-medicine"] {
           display: inline-block; }
       section form#add-data .field a, section form#add-data .field a:visited {
         color: #DA4359;
@@ -207,6 +207,8 @@ section {
         section form#add-data .field input[type="text"]:focus, section form#add-data .field input[type="date"]:focus, section form#add-data .field select:focus {
           outline: none;
           box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55); }
+      section form#add-data .field input[type="checkbox"] {
+        margin-left: 12px; }
       section form#add-data .field textarea {
         box-sizing: border-box;
         color: #DA4359;
