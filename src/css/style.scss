@@ -110,6 +110,7 @@ header {
   hr {
     margin: -7px 0px 30px 20px;
     border: 3px solid $lightgrey;
+    text-align: left;
     width: 56px;
   }
 }
@@ -386,7 +387,7 @@ section {
       
       div {
         box-sizing: border-box;
-        padding: 10px 15px;
+        padding: 10px 15px 15px 15px;
         width: 100%;
         min-height: 200px;
         background-color: #FFFFFF;

@@ -82,6 +82,7 @@ header #help-btn {
 header hr {
   margin: -7px 0px 30px 20px;
   border: 3px solid #b1b1b1;
+  text-align: left;
   width: 56px; }
 
 nav {
@@ -285,7 +286,7 @@ section {
       color: #b1b1b1; }
     section#all-data #history div {
       box-sizing: border-box;
-      padding: 10px 15px;
+      padding: 10px 15px 15px 15px;
       width: 100%;
       min-height: 200px;
       background-color: #FFFFFF;

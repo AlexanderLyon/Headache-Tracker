@@ -19,6 +19,7 @@ export class App extends React.Component {
     };
 
     this.fetchPreviousEntries = this.fetchPreviousEntries.bind(this);
+    this.createBackup = this.createBackup.bind(this);
     this.loadLinkedUserID = this.loadLinkedUserID.bind(this);
     this.changePanels = this.changePanels.bind(this);
     this.displayPanel = this.displayPanel.bind(this);
@@ -89,10 +90,11 @@ export class App extends React.Component {
         if (data.length) {
           daysSinceHeadache = this.calculateElapsedDays(data[0]['postedTimestamp']);
         }
+
         this.setState({
           previousEntries: data,
           elapsedDays: daysSinceHeadache
-        });
+        }, this.createBackup);
       }
       else {
         console.error('Unable to retreive data');
@@ -101,6 +103,24 @@ export class App extends React.Component {
     xhr.open('POST', 'utilities/getPreviousData.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('userID=' + this.state.userID);
+  }
+
+
+  createBackup() {
+    /* Create / update backup file */
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        console.log('Backed up successfully.');
+      }
+      else {
+        console.error('Unable to back up data.');
+      }
+    };
+    xhr.open('POST', 'backups/createBackup.php');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send('userID=' + this.state.userID + '&backupData=' + this.state.previousEntries);
   }
 
 
