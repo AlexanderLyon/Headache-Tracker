@@ -35,34 +35,41 @@ button.btn, button.btn:visited {
   background-color: #DA4359;
   border: 2px solid #DA4359;
   border-radius: 7px;
-  box-shadow: 1px 1px 14px -2px #DA4359;
+  -webkit-box-shadow: 1px 1px 14px -2px #DA4359;
+          box-shadow: 1px 1px 14px -2px #DA4359;
   padding: 1px 10px;
   height: 36px;
   min-width: 90px;
   font-size: 0.9rem;
   font-weight: bold;
+  -webkit-transition: 150ms;
   transition: 150ms;
   cursor: pointer; }
   button.btn:hover, button.btn:visited:hover {
     outline: none;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     background-color: #b93144;
     border-color: #b93144; }
   button.btn:focus, button.btn:visited:focus {
     outline: none;
-    box-shadow: 1px 1px 14px 1px #b93144; }
+    -webkit-box-shadow: 1px 1px 14px 1px #b93144;
+            box-shadow: 1px 1px 14px 1px #b93144; }
   button.btn:active, button.btn:visited:active {
-    box-shadow: none; }
+    -webkit-box-shadow: none;
+            box-shadow: none; }
   button.btn.ghost-btn, button.btn:visited.ghost-btn {
     background-color: transparent;
     color: #DA4359;
-    box-shadow: none; }
+    -webkit-box-shadow: none;
+            box-shadow: none; }
     button.btn.ghost-btn:hover, button.btn:visited.ghost-btn:hover {
       color: white;
       background-color: #DA4359;
       border-color: #DA4359; }
     button.btn.ghost-btn:focus, button.btn:visited.ghost-btn:focus {
-      box-shadow: 1px 1px 14px 0px #e07686; }
+      -webkit-box-shadow: 1px 1px 14px 0px #e07686;
+              box-shadow: 1px 1px 14px 0px #e07686; }
 
 header #title {
   margin: 20px;
@@ -127,7 +134,8 @@ nav {
 
 section {
   display: inline-block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   min-height: 100vh;
   width: calc(100% - 100px);
   padding: 10px 43px;
@@ -144,7 +152,8 @@ section {
     color: #6f6e6e; }
   section .card {
     display: inline-block;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 10px 15px;
     min-height: 200px;
     width: 100%;
@@ -161,8 +170,12 @@ section {
     color: #DA4359;
     font-weight: bold; }
   section #addDataBtn span {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
     section #addDataBtn span i {
       margin-right: 10px;
       font-size: 1.3em; }
@@ -173,7 +186,8 @@ section {
     animation: slide-in 400ms ease; }
     section form#add-data .field {
       display: inline-block;
-      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
       width: 50%;
       padding: 7px 12px;
       vertical-align: top; }
@@ -194,7 +208,8 @@ section {
           color: #b93144; }
       section form#add-data .field input[type="text"], section form#add-data .field input[type="date"], section form#add-data .field select {
         color: #DA4359;
-        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         background-color: white;
         -moz-appearance: none;
         -webkit-appearance: none;
@@ -204,14 +219,17 @@ section {
         border-radius: 7px;
         height: 36px;
         width: 100%;
+        -webkit-transition: 150ms;
         transition: 150ms; }
         section form#add-data .field input[type="text"]:focus, section form#add-data .field input[type="date"]:focus, section form#add-data .field select:focus {
           outline: none;
-          box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55); }
+          -webkit-box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55);
+                  box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55); }
       section form#add-data .field input[type="checkbox"] {
         margin-left: 12px; }
       section form#add-data .field textarea {
-        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
         color: #DA4359;
         background-color: white;
         -moz-appearance: none;
@@ -222,11 +240,13 @@ section {
         border-radius: 7px;
         height: 130px;
         width: 100%;
+        -webkit-transition: 150ms;
         transition: 150ms;
         resize: none; }
         section form#add-data .field textarea:focus {
           outline: none;
-          box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55); }
+          -webkit-box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55);
+                  box-shadow: 1px 2px 14px 0px rgba(218, 67, 89, 0.55); }
       section form#add-data .field #characters {
         float: right;
         margin: 2px 0px;
@@ -256,7 +276,8 @@ section {
       margin-top: 3px; }
   section #user-settings, section #triggers-setup {
     display: inline-block;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     width: 50%;
     padding: 0px 25px; }
     section #user-settings h2, section #triggers-setup h2 {
@@ -276,7 +297,8 @@ section {
     section #about p {
       margin-top: 0px; }
   section#all-data #history {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 0px 25px; }
     section#all-data #history h2 {
       margin-bottom: 12px; }
@@ -285,7 +307,8 @@ section {
       text-align: center;
       color: #b1b1b1; }
     section#all-data #history div {
-      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
       padding: 10px 15px 15px 15px;
       width: 100%;
       min-height: 200px;
@@ -299,7 +322,8 @@ section {
           section#all-data #history div table thead th {
             height: 38px;
             padding: 4px;
-            box-sizing: border-box; }
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box; }
         section#all-data #history div table tr {
           height: 38px; }
           section#all-data #history div table tr td {
@@ -311,7 +335,8 @@ section {
   position: fixed;
   top: calc(50% - 100px);
   left: 15%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 15px;
   height: 200px;
   width: 70%;
@@ -350,27 +375,32 @@ section {
 
   button.btn:hover, button.btn:focus {
     outline: none;
-    box-shadow: 1px 1px 14px -2px #DA4359;
+    -webkit-box-shadow: 1px 1px 14px -2px #DA4359;
+            box-shadow: 1px 1px 14px -2px #DA4359;
     background-color: #DA4359;
     border-color: #DA4359; }
   button.btn:active {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     color: white;
     background-color: #b93144; }
   button.btn.ghost-btn {
     background-color: transparent;
     color: #DA4359;
-    box-shadow: none; }
+    -webkit-box-shadow: none;
+            box-shadow: none; }
     button.btn.ghost-btn:hover {
       background-color: transparent;
       color: #DA4359;
-      box-shadow: none; }
+      -webkit-box-shadow: none;
+              box-shadow: none; }
     button.btn.ghost-btn:active {
       color: white;
       background-color: #DA4359;
       border-color: #DA4359; }
     button.btn.ghost-btn:focus {
-      box-shadow: none; }
+      -webkit-box-shadow: none;
+              box-shadow: none; }
 
   nav {
     float: none;
