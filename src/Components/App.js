@@ -111,16 +111,13 @@ export class App extends React.Component {
     const xhr = new XMLHttpRequest();
 
     xhr.onload = () => {
-      if (xhr.status === 200) {
-        console.log('Backed up successfully.');
-      }
-      else {
+      if (xhr.status != 200) {
         console.error('Unable to back up data.');
       }
     };
-    xhr.open('POST', 'backups/createBackup.php');
+    xhr.open('POST', 'utilities/createBackup.php');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.send('userID=' + this.state.userID + '&backupData=' + this.state.previousEntries);
+    xhr.send('userID=' + this.state.userID + '&backupData=' + JSON.stringify(this.state.previousEntries));
   }
 
 
