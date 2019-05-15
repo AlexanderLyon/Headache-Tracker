@@ -336,6 +336,18 @@ section {
         color: $red;
         font-size: 2em;
         font-weight: bold;
+
+        & > p {
+          margin: 18px 0px;
+          color: inherit;
+        }
+
+        span {
+          color: $lightgrey;
+          margin-right: 10px;
+          font-size: 0.6em;
+          vertical-align: top;
+        }
       }
     }
   }

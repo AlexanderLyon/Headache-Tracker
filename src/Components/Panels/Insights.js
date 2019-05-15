@@ -6,6 +6,7 @@ export class Insights extends React.Component {
     this.state = {};
 
     this.calculateAverageDays = this.calculateAverageDays.bind(this);
+    this.calculateTopDay = this.calculateTopDay.bind(this);
   }
 
 
@@ -28,6 +29,35 @@ export class Insights extends React.Component {
   }
 
 
+  calculateTopDay() {
+    const results = { 'first': 'unknown' };
+    const days = {
+      Sunday: 0,
+      Monday: 0,
+      Tuesday: 0,
+      Wednesday: 0,
+      Thursday: 0,
+      Friday: 0,
+      Saturday: 0
+    };
+
+    this.props.previousEntries.forEach((entry) => {
+      days[entry['dayOfWeek']]++;
+    });
+
+    // Top result:
+    results["first"] = Object.keys(days).reduce((a, b) => days[a] > days[b] ? a : b);
+
+    // Second result:
+    if (this.props.previousEntries.length > 1) {
+      delete days[results["first"]];
+      results["second"] = Object.keys(days).reduce((a, b) => days[a] > days[b] ? a : b);
+    }
+
+    return results;
+  }
+
+
   render() {
     return (
       <section>
@@ -37,6 +67,13 @@ export class Insights extends React.Component {
             <div className="card half">
               <h3>Average time between headaches:</h3>
               <p className="data-output">{this.calculateAverageDays()} days</p>
+            </div>
+            <div className="card half">
+              <h3>Most headaches occur on:</h3>
+              <p className="data-output">
+                <p><span>1st</span>{this.calculateTopDay()['first']}</p>
+                <p><span>2nd</span>{this.calculateTopDay()['second']}</p>
+              </p>
             </div>
           </div>
         ) : (

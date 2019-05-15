@@ -270,6 +270,14 @@ section {
     color: #DA4359;
     font-size: 2em;
     font-weight: bold; }
+    section #insights > .card p.data-output > p {
+      margin: 18px 0px;
+      color: inherit; }
+    section #insights > .card p.data-output span {
+      color: #b1b1b1;
+      margin-right: 10px;
+      font-size: 0.6em;
+      vertical-align: top; }
   section #user-settings {
     float: left; }
     section #user-settings button {

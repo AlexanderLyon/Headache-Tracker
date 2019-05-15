@@ -23,9 +23,9 @@ export class AddData extends React.Component {
     else {
       this.setState({ addingData: true, showingConfirmation: false }, () => {
         window.setTimeout(() => {
-          window.scrollTo(0, document.getElementById('add-data').offsetTop);
+          window.scrollTo({ top: document.getElementById('add-data').offsetTop, behavior: 'smooth' });
           document.getElementById('todays-weather').focus();
-        }, 500);
+        }, 510);
       });
 
     }
