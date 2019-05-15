@@ -299,6 +299,7 @@ section {
   section#all-data #history {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+    margin-bottom: 50px;
     padding: 0px 25px; }
     section#all-data #history h2 {
       margin-bottom: 12px; }
@@ -337,7 +338,7 @@ section {
   left: 15%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 15px;
+  padding: 5px 15px;
   height: 200px;
   width: 70%;
   background-color: #FFFFFF;

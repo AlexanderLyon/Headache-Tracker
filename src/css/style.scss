@@ -375,6 +375,7 @@ section {
   &#all-data {
     #history {
       box-sizing: border-box;
+      margin-bottom: 50px;
       padding: 0px 25px;
 
       h2 { margin-bottom: 12px; }
@@ -427,7 +428,7 @@ section {
     top: calc(50% - 100px);
     left: 15%;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 5px 15px;
     height: 200px;
     width: 70%;
     background-color: #FFFFFF;

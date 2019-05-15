@@ -21,7 +21,13 @@ export class AddData extends React.Component {
       this.setState({ addingData: false, charsRemaining: 100, showingConfirmation: false });
     }
     else {
-      this.setState({ addingData: true, showingConfirmation: false });
+      this.setState({ addingData: true, showingConfirmation: false }, () => {
+        window.setTimeout(() => {
+          window.scrollTo(0, document.getElementById('add-data').offsetTop);
+          document.getElementById('todays-weather').focus();
+        }, 500);
+      });
+
     }
   }
 
