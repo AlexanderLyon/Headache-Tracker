@@ -180,6 +180,7 @@ section {
       margin-right: 10px;
       font-size: 1.3em; }
   section form#add-data {
+    margin-bottom: 50px;
     padding: 20px 0px;
     max-width: 700px;
     -webkit-animation: slide-in 400ms ease;
@@ -274,10 +275,13 @@ section {
       margin: 18px 0px;
       color: inherit; }
     section #insights > .card p.data-output span {
+      display: inline-block;
       color: #b1b1b1;
       margin-right: 10px;
+      min-width: 30px;
       font-size: 0.6em;
-      vertical-align: top; }
+      vertical-align: top;
+      text-align: right; }
   section #user-settings {
     float: left; }
     section #user-settings button {
